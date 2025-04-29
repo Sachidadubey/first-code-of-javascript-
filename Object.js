@@ -22,7 +22,7 @@
 //  //Object.create()//  singleton object crreated using constructor
 
 //  console.log(Jsuser["email"]);
-//  console.log(Jsuser["fullName"])
+//  console.log(Jsuser["fullName"])   - recomended to use like this not with the dot oprator 
 
 // console.log(typeof Jsuser[MySymbol]);
 
