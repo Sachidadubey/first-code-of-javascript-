@@ -43,6 +43,52 @@ for (const key in myObject) {// it return keys only -- not valuee
 }
 
 // mostly used 
-// for each loop 
+// for each loop  --> higher order fucntion 
 const coding =["js","ruby","java ","python"]
 
+// coding.forEach(function (item){
+//     console.log(item);
+    
+// })
+// coding.forEach( (item)=>{
+//     console.log(item);
+    
+// })
+
+
+// function printMe(item)
+// {
+//     console.log(item);
+    
+// }
+// coding.forEach(printMe)
+
+coding.forEach( (item ,index ,arr)=>{// also function can also return these all --
+    console.log(item);
+    console.log(index);
+    console.log(arr);
+    
+    
+    
+})
+const myCoding=[{
+    languageNmae:"javascript",
+    languageFilename:"js"
+
+},{
+    name:"javascript",
+    languageFilename:"js"
+
+},{
+    languageNmae:"javascript",
+    languageFilename:"js"
+
+},{
+    languageNmae:"javascript",
+    languageFilename:"js"
+
+}]
+myCoding.forEach( (item)=>{
+    console.log(item.languageFilename);
+    
+})
