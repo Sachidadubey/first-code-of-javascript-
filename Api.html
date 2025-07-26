@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+
+
+
+document.body.appendChild(`<div id="card"><div id="image"></div><div id="followers">followers=:</div><div id="button"><button>Click</button></div></div>`)
+
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+   const xhr=new XMLHttpRequest();
+   xhr.open('GET',requestUrl) 
+   
+   xhr.onreadystatechange= function(){         // used to contineously track  without looping 
+ console.log(xhr.readyState);
+ if(xhr.readyState===4){
+    const data=  JSON.parse(this.responseText);// convert thhe strinng into the json 
+    console.log(this.responseText);
+   
+    
+ }
+   }
+   xhr.send(); // used to send the request to the server 
+   
+    // to send the request to the server 
+  
+   
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requestUrl)
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText)
+            console.log(typeof data);
+            console.log(data.followers); 
+            
+            
+            
+          pic and the followers fretch from the object theen create a card sing js only then  button click then data show -------
+          pic and the ollowers count onclick button show ---  -->

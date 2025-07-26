@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // Create the card container
+const card = document.createElement('div');
+card.style.width = '300px';
+card.style.border = '1px solid #ccc';
+card.style.borderRadius = '8px';
+card.style.boxShadow = '2px 2px 12px #aaa';
+card.style.padding = '16px';
+card.style.fontFamily = 'Arial, sans-serif';
+card.style.textAlign = 'center';
+
+// Create the button
+const btn = document.createElement('button');
+btn.textContent = 'Click';
+btn.style.padding = '10px 20px';
+btn.style.fontSize = '16px';
+btn.style.cursor = 'pointer';
+btn.style.marginTop = '10px';
+
+// Append button to card
+card.appendChild(btn);
+
+// Create a container for avatar image and followers info
+const contentDiv = document.createElement('div');
+contentDiv.style.marginTop = '15px';
+card.appendChild(contentDiv);
+
+// Append the card to body (or you can choose any container)
+document.body.appendChild(card);
+
+// Add event listener to button
+btn.addEventListener('click', function() {
+    // Create HTTP request
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://api.github.com/users/hiteshchoudhary', true);
+
+    xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            const data = JSON.parse(xhr.responseText);
+
+            // Clear previous content (if any)
+            contentDiv.innerHTML = '';
+
+            // Create avatar image
+            const avatar = document.createElement('img');
+            avatar.src = data.avatar_url;
+            avatar.alt = 'Avatar';
+            avatar.style.width = '150px';
+            avatar.style.borderRadius = '50%';
+            avatar.style.display = 'block';
+            avatar.style.margin = '0 auto';
+
+            // Create followers info
+            const followers = document.createElement('p');
+            followers.textContent = `Followers: ${data.followers}`;
+            followers.style.fontSize = '18px';
+            followers.style.marginTop = '10px';
+
+            // Append to content div
+            contentDiv.appendChild(avatar);
+            contentDiv.appendChild(followers);
+        } else {
+            contentDiv.textContent = 'Failed to fetch data.';
+        }
+    };
+
+    xhr.onerror = function() {
+        contentDiv.textContent = 'Request error.';
+    };
+
+    xhr.send();
+});
+</script>
+</html>
+
+
+
+
